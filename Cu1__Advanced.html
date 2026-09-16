@@ -11,16 +11,16 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; /* חוסם את הגלילות סופית */
+      overflow: hidden; /* חוסם את פסי הגלילה */
       background-color: #fcfcfc;
     }
 
-    /* ממלא בדיוק את כל המסך בלי סקייל ובלי שגיאות */
+    /* שימוש ב-zoom אמיתי שמקטין את כל התצוגה של הגרף באופן פרופורציונלי */
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-      display: block;
+      zoom: 65%; /* אפשר לשנות ל-60% או 70% לפי הצורך */
     }
   </style>
 </head>
