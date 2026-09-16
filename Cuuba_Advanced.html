@@ -11,7 +11,7 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; /* חוסם לחלוטין כל אפשרות לגלילה */
+      overflow: hidden;
       background-color: #fcfcfc;
     }
 
@@ -24,13 +24,22 @@
       position: relative;
     }
 
-    /* נותנים ל-iframe גודל יחסי רחב ומכווצים אותו כך שיישב בול בתוך המסך */
+    /* הגדרות למחשב */
     iframe {
       width: 130%;
       height: 130%;
       border: none;
-      transform: scale(0.75); /* כיווץ עדין שמתאים למסכי מחשב רגילים */
+      transform: scale(0.75);
       transform-origin: center center;
+    }
+
+    /* הגדרות מיוחדות לטלפונים ניידים (מסכים קטנים מ-600 פיקסלים) */
+    @media only screen and (max-width: 600px) {
+      iframe {
+        width: 200%;
+        height: 150%;
+        transform: scale(0.45); /* כיווץ שמותאם למסך אנכי של טלפון */
+      }
     }
   </style>
 </head>
