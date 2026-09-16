@@ -3,8 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>👉🎁 Prizes Graph</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* מבטל רווחים מיותרים במסך ומונע גלילה מיותרת */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #fcfcfc;
+    }
+
+    /* קונטיינר שתופס בדיוק את כל המסך של הדפדפן */
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ה-iframe יתאים את עצמו למסך בצורה חלקה */
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
-<body style="margin: 0; padding: 20px; background: #fcfcfc;">
-  <iframe width="800" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQY7k7L9-G25mlG_gPKpzMzGfGrdX-RZkRvzzPee594neieFhvUb1qhCVG2DtIhGC5JQIyW8OLkWVid/pubchart?oid=692775488&format=interactive" frameborder="0"></iframe>
+<body>
+  <div class="container">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQY7k7L9-G25mlG_gPKpzMzGfGrdX-RZkRvzzPee594neieFhvUb1qhCVG2DtIhGC5JQIyW8OLkWVid/pubchart?oid=692775488&format=interactive"></iframe>
+  </div>
 </body>
 </html>
