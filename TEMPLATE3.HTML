@@ -26,7 +26,7 @@
       display: none;
     }
 
-    /* עיצוב הבועה במובייל עם אנימציית ריחוף/פעימה */
+    /* עיצוב משודרג ל-UX עם אנימציית חצים קטנה */
     @media only screen and (max-width: 768px) {
       body, html {
         overflow-x: auto;
@@ -35,7 +35,7 @@
       .scroll-hint {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 6px;
         position: fixed;
         bottom: 20px;
         left: 50%;
@@ -48,80 +48,41 @@
         font-size: 13px;
         font-weight: 500;
         z-index: 999;
+        pointer-events: none;
         box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-        /* החזרנו את אנימציית הפעימה/ריחוף העדינה לכל הבועה */
-        animation: pulseAndFloat 2s infinite ease-in-out;
+        animation: fadeInOut 2s infinite;
       }
 
-      /* כפתורי החצים הלחיצים */
-      .scroll-arrow {
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
-        color: white;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s;
+      /* תזוזה קטנה לחצים שמושכת את העין לגרור */
+      .arrow-left {
+        animation: bounceLeft 1s infinite alternate;
       }
-
-      .scroll-arrow:active {
-        background: rgba(255, 255, 255, 0.4);
+      .arrow-right {
+        animation: bounceRight 1s infinite alternate;
       }
     }
 
-    /* אנימציה משולבת שמוסיפה ריחוף קטן ושינויי שקיפות עדינים */
-    @keyframes pulseAndFloat {
-      0% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 0.9;
-      }
-      50% {
-        transform: translateX(-50%) translateY(-4px); /* מרחף קצת למעלה */
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 0.9;
-      }
+    @keyframes bounceLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-3px); }
+    }
+
+    @keyframes bounceRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(3px); }
     }
   </style>
 </head>
 <body>
 
-  <!-- בועה לחיצה עם אנימציה והמילה "לגלילה" -->
-  <div class="scroll-hint" id="scrollContainer">
-    <button class="scroll-arrow" id="leftBtn" title="גלול שמאלה">◀</button>
-    <span>לגלילה</span>
-    <button class="scroll-arrow" id="rightBtn" title="גלול ימינה">▶</button>
+  <!-- בועת UX עם חצים זזים והטקסט שלך -->
+  <div class="scroll-hint">
+    <span class="arrow-left">◀</span>
+    <span>גלול לצדדים</span>
+    <span class="arrow-right">▶</span>
   </div>
 
   <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQY7k7L9-G25mlG_gPKpzMzGfGrdX-RZkRvzzPee594neieFhvUb1qhCVG2DtIhGC5JQIyW8OLkWVid/pubchart?oid=692775488&format=interactive"></iframe>
-
-  <!-- ג'אווה-סקריפט להפעלת הגלילה בלחיצה על החצים -->
-  <script>
-    document.getElementById('leftBtn').addEventListener('click', function(e) {
-      e.stopPropagation();
-      window.scrollBy({
-        left: -350,
-        behavior: 'smooth'
-      });
-    });
-
-    document.getElementById('rightBtn').addEventListener('click', function(e) {
-      e.stopPropagation();
-      window.scrollBy({
-        left: 350,
-        behavior: 'smooth'
-      });
-    });
-  </script>
 
 </body>
 </html>
