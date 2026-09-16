@@ -6,31 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    /* מבטל רווחים מיותרים במסך ומונע גלילה מיותרת */
     body, html {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; /* מעלים את פסי הגלילה */
+      overflow: hidden;
       background-color: #fcfcfc;
     }
 
+    /* קונטיינר שתופס בדיוק את כל המסך של הדפדפן */
     .container {
       width: 100vw;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
     }
 
-    /* הקטנה של הגרף כך שייכנס יפה למסך בלי גלילות */
+    /* ה-iframe יתאים את עצמו למסך בצורה חלקה */
     iframe {
-      width: 150%;
-      height: 150%;
+      width: 100%;
+      height: 100%;
       border: none;
-      transform: scale(0.65); /* אפשר לשנות ל-0.6 או 0.7 אם תרצי קצת יותר גדול/קטן */
-      transform-origin: center center;
     }
   </style>
 </head>
